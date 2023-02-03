@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--suppress ALL -->
+<mapper namespace="com.bjpowernode.crm.settings.dao.SpotDao">
+
+    <select id="getSpotList" resultType="map">
+
+        select spot,
+               time,
+               state
+        from tab_taskspot a JOIN tab_user b on a.userid = b.id WHERE b.id=#{id}
+
+    </select>
+</mapper>

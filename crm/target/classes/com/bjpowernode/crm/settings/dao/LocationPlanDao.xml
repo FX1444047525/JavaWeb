@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bjpowernode.crm.settings.dao.LocationPlanDao">
+
+    <insert id="save">
+
+        insert into tab_locationplan(
+
+            id,
+            location,
+            all_dist,
+            best_distlist,
+            htmlfile,
+            creat_time
+        )
+
+        values(
+                  #{id},
+                  #{location},
+                  #{all_dist},
+                  #{best_distlist},
+                  #{htmlfile},
+                  #{creat_time}
+              )
+    </insert>
+
+    <select id="getHtml" resultType="String">
+
+        select htmlfile from tab_locationplan where id=#{id} order by creat_time desc limit 1
+
+    </select>
+
+</mapper>
